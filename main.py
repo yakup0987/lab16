@@ -5,7 +5,8 @@ class Context7Service:
 
     def get_documentation(self, library_name: str, topic: str = None):
         """Получает документацию для указанной библиотеки."""
-        print(f"Запрос документации для библиотеки: {library_name}, тема: {topic if topic else 'общая'}")
+        # Улучшенный вывод информации
+        print(f"[INFO] Запрос документации для библиотеки: {library_name}, тема: {topic if topic else 'общая'}")
         # Здесь могла бы быть реальная логика запроса к Context7
         return f"Документация по {library_name} (тема: {topic if topic else 'общая'}) ...содержимое..."
 
@@ -25,6 +26,6 @@ if __name__ == "__main__":
     print(f"Получена документация: {doc}")
 
     analysis_result = service.analyze_code_snippet("import os\nprint(os.getenv('HOME'))")
-    print(f"Результат анализа: {analysis_result}")
+    print(f"Результат анализа кода: {analysis_result}")
 
-    print("Программа завершена.") 
+    print("Программа успешно завершена.") 
