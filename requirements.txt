@@ -1,4 +1,0 @@
-# Файл для зависимостей Python
-# Например:
-# requests==2.25.1
-# modelcontextprotocol==0.1.0 
