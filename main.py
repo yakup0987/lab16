@@ -1,3 +1,6 @@
+import config
+from utils import helper_function
+
 class Context7Service:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -16,11 +19,22 @@ class Context7Service:
         # Здесь могла бы быть реальная логика анализа
         return "Анализ кода завершен. Замечаний не найдено."
 
+    def validate_api_key(self):
+        """Проверяет валидность API ключа."""
+        if len(self.api_key) < 10:
+            print("[WARNING] API ключ слишком короткий!")
+            return False
+        return True
+
 if __name__ == "__main__":
     # Пример использования
     # Для реального использования API ключ нужно получить от сервиса Context7
     # и безопасно его хранить, например, в переменных окружения.
     service = Context7Service(api_key="YOUR_CONTEXT7_API_KEY_HERE")
+
+    # Проверка валидности ключа
+    is_valid = service.validate_api_key()
+    print(f"API ключ валиден: {is_valid}")
 
     doc = service.get_documentation(library_name="requests", topic="Quickstart")
     print(f"Получена документация: {doc}")
